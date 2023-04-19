@@ -1,0 +1,117 @@
+<header class="gradient-bg-1">
+    <nav class="d-flex justify-content-between align-items-center container mx-auto py-2">
+        <h3 class="m-0 fw-semibold text-white">Charming</h3>
+
+        <div class="d-flex align-items-center gap-5">
+            <p 
+                class="m-0 text-white" style="font-size: 1.2rem; cursor: pointer;"
+                routerLink="/product-show"
+            >
+                Product
+            </p>
+            <p 
+                class="m-0 text-white" style="font-size: 1.2rem; cursor: pointer;"
+            >
+                About us
+            </p>
+        </div>
+
+        <button 
+            class="button rounded px-3 py-2 bg-pink-3 d-flex align-items-center gap-2 text-white"
+            (click)="onLogout()"
+        >
+            logout
+            <i class="pi pi-arrow-right" style="font-size: 1rem;"></i>
+        </button>
+    </nav>
+</header>
+
+
+<div class="container mx-auto mt-5">
+    <div class="position-absolute" style="top: 80px; left: 60px;">
+        <button 
+            class="button px-3 py-2 rounded d-flex align-items-center gap-2 text-dark" 
+            style="background-color: transparent; cursor: pointer;"
+            routerLink="/profile"
+        >
+            <i class="pi pi-arrow-left text-dark" style="font-size: 1rem;"></i>
+            Back
+        </button>
+    </div>
+
+    <div class="p-4 d-flex justify-content-center gap-4 align-items-center">
+        <div 
+            class="rounded-pill py-2 px-3 {{cateSelected === 'ทั้งหมด' ? 'bg-pink-2 shadow text-white' : 'bg-light text-dark'}}"
+            style="cursor: pointer;"
+            (click)="onClickCate('ทั้งหมด')"
+        >
+            ทั้งหมด
+        </div>
+
+        <div 
+            class="rounded-pill bg-pink-2 py-2 px-3 {{cateSelected === 'สกินแคร์' ? 'bg-pink-2 shadow text-white' : 'bg-light text-dark'}}"
+            style="cursor: pointer;"
+            (click)="onClickCate('สกินแคร์')"
+        >
+            สกินแคร์
+        </div>
+
+        <div 
+            class="rounded-pill bg-pink-2 py-2 px-3 {{cateSelected === 'ผม' ? 'bg-pink-2 shadow text-white' : 'bg-light text-dark'}}"
+            style="cursor: pointer;"
+            (click)="onClickCate('ผม')"
+        >
+            บำรุงผม
+        </div>
+
+        <div 
+            class="rounded-pill bg-pink-2 py-2 px-3 {{cateSelected === 'เครื่องสำอาง' ? 'bg-pink-2 shadow text-white' : 'bg-light text-dark'}}"
+            style="cursor: pointer;"
+            (click)="onClickCate('เครื่องสำอาง')"
+        >
+            เครื่องสำอาง
+        </div>
+
+        <div 
+            class="rounded-pill bg-pink-2 py-2 px-3 {{cateSelected === 'อาหารเสริม' ? 'bg-pink-2 shadow text-white' : 'bg-light text-dark'}}"
+            style="cursor: pointer;"
+            (click)="onClickCate('อาหารเสริม')"
+        >
+            อาหารเสริม
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-2 shadow rounded m-3 p-0" *ngFor="let p of products">
+            <div class="card w-100" style="border: none; width: 15rem; height: 20rem;">
+                <img 
+                    [src]="p.image" 
+                    [alt]="p.name"
+                    style="object-fit: cover; cursor: pointer;"
+                    height="200"
+                    class="card-img-top"
+                    [routerLink]="['/product-detail', p._id]"
+                />
+
+                <div class="card-body d-flex flex-column gap-3 justify-content-between">
+                    <div class="card-text" style="font-weight: 300;">{{p.name}}</div>
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div 
+                            class="badge rounded-pill bg-pink-2 m-0" 
+                            style="font-weight: 300; cursor: pointer;"
+                            (click)="onClickCate(p.category)"
+                        >
+                            {{p.category}}
+                        </div>
+                        <div class="card-text text-end" style="font-weight: 300;">
+                            {{p.price | currency: '': '฿' : '1.2-2'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

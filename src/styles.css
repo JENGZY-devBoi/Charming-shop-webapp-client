@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&family=Srisakdi:wght@400;700&display=swap');
+
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+:root {
+    --color-pink-1: #FF3399;
+    --color-pink-2: #FF66CC;
+    --color-pink-3: #FFCCCC;
+}
+
+.button {
+    border: none;
+}
+
+.bg-pink-1 {
+    background-color: var(--color-pink-1);
+}
+
+.bg-pink-2 {
+    background-color: var(--color-pink-2);
+}
+
+.bg-pink-3 {
+    background-color: var(--color-pink-3);
+}
+
+.gradient-bg-1 {
+    background-image: linear-gradient(to right top, #ff3399, #ff42a6, #ff4fb3, #ff5bc0, #ff66cc);
+}
+
+.slide-bottom {
+    -webkit-animation: slide-bottom 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-bottom 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-bottom {
+    0% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}

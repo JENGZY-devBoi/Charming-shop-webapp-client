@@ -1,0 +1,10 @@
+.sqs-block-image {
+    transform: scale(1) !important;
+    transition: all ease 0.3s !important;
+    cursor: pointer;
+}
+
+.sqs-block-image:hover {
+    transform: scale(1.1) !important;
+    transition: all ease 0.3s !important;
+}
